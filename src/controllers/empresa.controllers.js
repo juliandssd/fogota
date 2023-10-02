@@ -27,3 +27,9 @@ export const mostraridempresa= async(req,res)=>{
     res.json(result);
 }
 
+export const mostrarempresaidempresa= async(req,res)=>{
+    const {id_empresa} = req.params;
+    const [result] = await pool.query('select * from empresa where id_empresa=?',[id_empresa]);
+    res.json(result);
+}
+

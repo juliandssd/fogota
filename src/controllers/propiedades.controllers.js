@@ -8,3 +8,9 @@ export const propiedadesinsertar= async(req,res)=>{
     res.json(rows);
 }
 
+
+export const mostraridpropiedades= async(req,res)=>{
+    const {id_empresa} = req.params;
+    const [result] = await pool.query('call PROPIEDADES__MostrarId(?)',[id_empresa]);
+    res.json(result[0]);
+}
