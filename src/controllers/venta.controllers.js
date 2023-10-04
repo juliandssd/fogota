@@ -23,8 +23,8 @@ export const ventamostrarcuenta = async (req, res) =>
 }
 
 export const Insertardetalle= async(req,res)=>{
-    const {id_venta,id_producto,Nota}=req.body;
-   const [rows]= await pool.query('call DETALLE__insertar(?,?,?)',[id_venta,id_producto,Nota]);
+    const {id_venta,id_producto,Nota,cantidad}=req.body;
+   const [rows]= await pool.query('call DETALLE__insertar(?,?,?,?)',[id_venta,id_producto,Nota,cantidad]);
     console.log(req.body);
     res.send("Creado");
 }

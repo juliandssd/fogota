@@ -40,13 +40,13 @@ export const mostrarmesaporsalonpc = async(req,res)=>{
 }
 export const mostraridsalondefault = async(req,res)=>{
     const {id_empresa}=req.params;
-    const [result] = await pool.query('select id_salon,Propina from SALON where id_empresa=?',[id_empresa]);
+    const [result] = await pool.query('select id_salon,Propina from salon where id_empresa=?',[id_empresa]);
     res.json(result);
 }
 
 export const editarmesaocupado=async (req,res)=>{
-    const{id_mesa,Mesero}=req.body;
-   const [result]= await pool.query('call MESA_EstadoOcupado(?,?)',[id_mesa,Mesero])
+    const{id_mesa,mesero}=req.body;
+   const [result]= await pool.query('call MESA_EstadoOcupado(?,?)',[id_mesa,mesero])
     res.send("Creado");
     console.log(req.body);
 }

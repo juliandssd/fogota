@@ -96,3 +96,12 @@ export const detalleliminar= async(req, res) =>{
     res.send("Creado");
     console.log(req.body);
 }
+
+
+
+export const Insertardetalleapp= async(req,res)=>{
+    const {id_venta,id_producto,Nota}=req.body;
+   const [rows]= await pool.query('call DETALLE__insertar(?,?,?)',[id_venta,id_producto,Nota]);
+    console.log(req.body);
+    res.send("Creado");
+}
