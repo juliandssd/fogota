@@ -11,8 +11,8 @@ export const VentaInsertar= async(req,res)=>{
 export const MostrarVentaPorIdmesa = async (req, res) => 
 {
     const {id_mesa}=req.params;
-    const [result]=await pool.query('call VENTA__MostrarID(?)?',[id_mesa]);
-    res.send(result[0]);
+    const [result]=await pool.query('select *  from venta WHERE id_mesa=? and Estado!="TERMINADO"' ,[id_mesa]);
+    res.send(result);
 }
 
 export const ventamostrarcuenta = async (req, res) => 
