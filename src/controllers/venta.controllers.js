@@ -11,7 +11,7 @@ export const VentaInsertar= async(req,res)=>{
 export const MostrarVentaPorIdmesa = async (req, res) => 
 {
     const {id_mesa,id_usuario}=req.params;
-    const [result]=await pool.query('select *  from venta WHERE id_mesa=? and Estado!="TERMINADO" and id_usuario?' ,[id_mesa,id_usuario]);
+    const [result]=await pool.query('select *  from venta WHERE id_mesa=? and Estado!="TERMINADO" and id_usuario=?' ,[id_mesa,id_usuario]);
     res.send(result);
 }
 
