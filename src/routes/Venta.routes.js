@@ -2,7 +2,7 @@ import {Router} from 'express';
 import {VentaInsertar,MostrarVentaPorIdmesa,Insertardetalle
 ,MostrarCountdetalleEspera,VENTA__Editarestado,insertarnotificacion,
 validarusuariomesa,ventamostrarporidmesa,ventaporid_venta,
-ventamostrarstock,eliminarventa,rpt_precuenta,mostraridmaximoporidmesa
+ventamostrarstock,eliminarventa,rpt_precuenta,mostraridmaximoporidmesa,EliminarVentanull
 } from '../controllers/venta.controllers.js';
 const routes = Router();
 routes.post('/api/ventainsertar',VentaInsertar);
@@ -19,4 +19,5 @@ routes.get('/api/venta/mostrarstock/:id_venta/:id_producto',ventamostrarstock)
 routes.delete('/api/venta/eliminarventa/:id_venta',eliminarventa);
 routes.get('/api/venta/rpt_preecuenta/:id_venta/:procentaje',rpt_precuenta);
 routes.get('/api/venta/mostrarporid_mesamax/:id_mesa',mostraridmaximoporidmesa);
+routes.delete('/api/venta/eliminarincompleta/:id_mesa',EliminarVentanull);
 export default routes;

@@ -34,6 +34,12 @@ export const MostrarCountdetalleEspera= async(req, res) =>{
     const [result]=await pool.query('select count(*) as total from detalle where Estado="EN ESPERA"  and id_venta=?',[id_venta]);
     res.send(result);
 }
+export const EliminarVentanull= async(req, res) =>{
+    const {id_venta}=req.params;
+    const [result]=await pool.query('call VENTA__EliminarIncompleta(?)',[id_venta]);
+    res.send(result);
+}
+
 export const validarusuariomesa= async(req, res) =>{
     const {id_usuario,id_mesa}=req.params;
     const [result]=await pool.query('call VENTA__VentarRegistradaPorEseUsuario(?,?)',[id_usuario,id_mesa]);
